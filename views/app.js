@@ -1,9 +1,7 @@
 let express = require('express'); //requiero express
-const { dirname } = require('path');
 let app = express(); 
+const PORT = 3030;
 const path = require('path')
-const PORT = 3000;
-app.use(express.static('public'));
 
 
 app.get('/', function(req, res) {
@@ -11,13 +9,16 @@ app.get('/', function(req, res) {
 }) 
 
 app.get('/babbage', function(req, res) {
-    res.sendFile(path.join(__dirname, "/babbage.html"))
+    res.sendFile(path.join(__dirname, "/views/babbage.html"))
 })
 app.get('/berners-lee', function(req, res) {
-    res.sendFile(path.join(__dirname, "/berners-lee.html"))
+    res.sendFile(path.join(__dirname, "/views/berners-lee.html"))
 })
 
 
+app.listen(PORT, () => console.log(`Servidor levantado en el puerto${PORT}
+http://localhost:${PORT}
+`))
 
 //app.use(express.static(__dirname + '/public'));
 
