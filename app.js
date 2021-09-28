@@ -1,9 +1,10 @@
 const express = require('express'); //requiero express
 const app = express(); 
 const PORT = 3030;
-const path = require('path')
+const path = require('path');
 
-app.get('localhost:3030/home', (req, res) => {
+
+app.get('/', (req, res) => {
     res.sendFIle(path.join(__dirname, "/views/index.html"))
 });
 
@@ -39,6 +40,6 @@ app.get('/turing', (req, res)  => {
 app.listen(PORT, () => console.log(`Servidor levantado en el puerto${PORT}
 http://localhost:${PORT}`))
 
-//app.use(express.static(__dirname + '/public'));
+//
 
 
